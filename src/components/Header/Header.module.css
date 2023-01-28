@@ -1,0 +1,35 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.addButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 44px;
+	height: 44px;
+	background-color: var(--color-blue);
+	border-radius: 50%;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+.addButton:hover {
+	background-color: var(--color-blue-hover);
+}
+
+.svg {
+	height: 44px;
+	width: 44px;
+	fill: var(--color-white);
+}
+
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

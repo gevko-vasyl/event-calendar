@@ -1,13 +1,43 @@
+:root {
+	--form-font-size: 0.8rem;
+	--form-padding: 0.24rem;
+	--form-margin: 0.16rem;
+	--form-border-width: 0.04rem;
+	--form-border-radius: 0.12rem;
+	--form-button-size: 0.84rem;
+	--color-white: #ffffff;
+	--color-blue: #1948ad;
+	--color-blue-hover: #0b28a7cf;
+	--color-red: #d13d33f4;
+	--color-red-hover: #b11f1fc0;
+	--color-grey: #6162638b;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.app {
+	display: flex;
+	padding: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	flex-direction: column;
+	min-height: 100vh;
+	gap: 0.75rem;
+	background-color: var(--color-grey);
 }
