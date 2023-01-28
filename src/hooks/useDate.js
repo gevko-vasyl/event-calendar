@@ -22,13 +22,17 @@ export const useDate = localStorageDate => {
   const daysInMonth = getDaysInMonth(date);
   const firstDay = format(startOfMonth(date), 'E');
 
-  const getNextMonth = useCallback(() => {
-    setDate(prevDate => new Date(getYear(prevDate), getMonth(prevDate) + 1));
-  }, []);
+  const getNextMonth = () => {
+    const nexMonth = new Date(getYear(date), getMonth(date) + 1);
+    setDate(nexMonth);
+    setLocalStorageDate(nexMonth);
+  };
 
-  const getPreviousMonth = useCallback(() => {
-    setDate(prevDate => new Date(getYear(prevDate), getMonth(prevDate) - 1));
-  }, []);
+  const getPreviousMonth = () => {
+    const previousMonth = new Date(getYear(date), getMonth(date) - 1);
+    setDate(previousMonth);
+    setLocalStorageDate(previousMonth);
+  };
 
   const getSelectedMonth = useCallback(
     (year, month) => {
