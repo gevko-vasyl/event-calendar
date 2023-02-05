@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/event-calendar/static/css/main.34d446a9.css",
-    "main.js": "/event-calendar/static/js/main.1a64a8b7.js",
+    "main.css": "/event-calendar/static/css/main.7f37c22f.css",
+    "main.js": "/event-calendar/static/js/main.5860f681.js",
     "index.html": "/event-calendar/index.html",
-    "main.34d446a9.css.map": "/event-calendar/static/css/main.34d446a9.css.map",
-    "main.1a64a8b7.js.map": "/event-calendar/static/js/main.1a64a8b7.js.map"
+    "static/media/calendar-icon.svg": "/event-calendar/static/media/calendar-icon.f0ed3952a1ff65648a7697b4f1b6d8bc.svg",
+    "static/media/right-arrow.svg": "/event-calendar/static/media/right-arrow.176f1342ab68256c641570d403bcc55d.svg",
+    "static/media/left-arrow.svg": "/event-calendar/static/media/left-arrow.79b429dcbc4157890724fd855956ab90.svg",
+    "static/media/add-icon.svg": "/event-calendar/static/media/add-icon.cd029d057b8fc5ec388be139afd584b0.svg",
+    "main.7f37c22f.css.map": "/event-calendar/static/css/main.7f37c22f.css.map",
+    "main.5860f681.js.map": "/event-calendar/static/js/main.5860f681.js.map"
   },
   "entrypoints": [
-    "static/css/main.34d446a9.css",
-    "static/js/main.1a64a8b7.js"
+    "static/css/main.7f37c22f.css",
+    "static/js/main.5860f681.js"
   ]
 }
