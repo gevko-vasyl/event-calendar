@@ -1,12 +1,12 @@
 .list {
-	display: grid;
-	flex-grow: 1;
-	grid-template-columns: repeat(7, minmax(0, 1fr));
-	gap: 2px;
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
 
-	width: 100%;
-	height: auto;
-	padding: 0.7rem;
+  width: 100%;
+  height: auto;
+  padding: 0.7rem;
 
-	background-color: var(--color-grey);
+  background-color: var(--color-grey);
 }

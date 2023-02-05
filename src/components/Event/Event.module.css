@@ -1,25 +1,25 @@
 .container {
-	display: flex;
-	padding-left: 0.25rem;
-	padding-right: 0.25rem;
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-	flex-shrink: 0;
-	align-items: center;
-	height: 1.25rem;
-	border-radius: var(--form-border-radius);
+  display: flex;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  height: 1.25rem;
+  border-radius: var(--form-border-radius);
 }
 
 .container:hover {
-	background-color: var(--color-grey);
-	cursor: pointer;
+  background-color: var(--color-grey);
+  cursor: pointer;
 }
 
 .title {
-	margin-left: 0.5rem;
-	font-weight: 500;
-	line-height: 1;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+  margin-left: 0.5rem;
+  font-weight: 500;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
