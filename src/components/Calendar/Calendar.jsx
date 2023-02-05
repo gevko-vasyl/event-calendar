@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import { parse } from 'date-fns';
 import DayList from '../DayList/DayList';
 import {
@@ -45,4 +45,4 @@ const Calendar = ({ date }) => {
   );
 };
 
-export default Calendar;
+export default memo(Calendar);

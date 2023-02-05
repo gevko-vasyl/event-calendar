@@ -1,7 +1,9 @@
 import { useMemo, useState, useCallback } from 'react';
+import { isBefore, parse } from 'date-fns';
 import { nanoid } from 'nanoid';
 import { useAppContext } from '../context';
 import { useLocalStorage } from './useLocalStorage';
+// import { useApiCall } from './useApiCall';
 
 export const useFormEvent = event => {
   const [name, setName] = useState(event?.name || '');
@@ -9,10 +11,22 @@ export const useFormEvent = event => {
   const [start, setStart] = useState(event?.start || '');
   const [end, setEnd] = useState(event?.end || '');
   const [description, setDescription] = useState(event?.description || '');
-  const [error, setError] = useState('');
-  const { setIsModalOpen, setModalEvent, setEvents } = useAppContext();
+  const { setIsModalOpen, setModalEvent, setEvents, setError } =
+    useAppContext();
   const [localStorageEvents, setLocalStorageEvents] = useLocalStorage('events');
+  // const { makeCall } = useApiCall(url,'POST');
 
+  const dateStart = useMemo(
+    () => parse(`${date} ${start}`, 'yyyy-MM-dd HH:mm', new Date()),
+    [date, start],
+  );
+
+  const dateEnd = useMemo(
+    () => parse(`${date} ${end}`, 'yyyy-MM-dd HH:mm', new Date()),
+    [date, end],
+  );
+
+  //TODO make fn async if want to use api call
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
@@ -28,7 +42,40 @@ export const useFormEvent = event => {
         return;
       }
 
-      const newEvent = { id: nanoid(), name, description, date, start, end };
+      if (isBefore(dateEnd, dateStart)) {
+        setError('End time cannot be before start time');
+        return;
+      }
+
+      let newEvent;
+
+      if (event) {
+        // Updated event
+        newEvent = {
+          ...event,
+          name,
+          description,
+          date,
+          start,
+          end,
+          updatedAt: new Date(),
+        };
+      } else {
+        // Created event
+        newEvent = {
+          id: nanoid(),
+          name,
+          description,
+          date,
+          start,
+          end,
+          createdAt: new Date(),
+          updatedAt: null,
+        };
+      }
+
+      // Make post api call to add new event
+      // await makeCall(newEvent);
 
       const updatedEvents = localStorageEvents
         ? [...localStorageEvents.filter(el => el?.id !== event?.id), newEvent]
@@ -44,7 +91,7 @@ export const useFormEvent = event => {
       date,
       description,
       end,
-      event?.id,
+      event,
       localStorageEvents,
       name,
       setEvents,
@@ -88,8 +135,7 @@ export const useFormEvent = event => {
       setDescription,
       handleSubmit,
       handleDelete,
-      error,
     }),
-    [date, description, end, error, handleDelete, handleSubmit, name, start],
+    [date, description, end, handleDelete, handleSubmit, name, start],
   );
 };

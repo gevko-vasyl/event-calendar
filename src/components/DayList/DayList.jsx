@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import DayCard from '../DayCard/DayCard';
 import styles from './DayList.module.css';
 
@@ -34,4 +34,4 @@ const DayList = ({ data, firstDayOfMonth }) => {
   );
 };
 
-export default DayList;
+export default memo(DayList);

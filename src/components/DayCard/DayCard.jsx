@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import { isSameDay, format } from 'date-fns';
 import Event from '../Event/Event';
 import { dateToTimestamp } from '../../utils/calendar';
@@ -38,4 +38,4 @@ const DayCard = ({ date, events }) => {
   );
 };
 
-export default DayCard;
+export default memo(DayCard);

@@ -4,7 +4,6 @@ import getDaysInMonth from 'date-fns/getDaysInMonth';
 import getMonth from 'date-fns/getMonth';
 import getYear from 'date-fns/getYear';
 import startOfMonth from 'date-fns/startOfMonth';
-
 import { useLocalStorage } from './useLocalStorage';
 
 export const useDate = localStorageDate => {
@@ -23,9 +22,9 @@ export const useDate = localStorageDate => {
   const firstDay = format(startOfMonth(date), 'E');
 
   const getNextMonth = () => {
-    const nexMonth = new Date(getYear(date), getMonth(date) + 1);
-    setDate(nexMonth);
-    setLocalStorageDate(nexMonth);
+    const nextMonth = new Date(getYear(date), getMonth(date) + 1);
+    setDate(nextMonth);
+    setLocalStorageDate(nextMonth);
   };
 
   const getPreviousMonth = () => {

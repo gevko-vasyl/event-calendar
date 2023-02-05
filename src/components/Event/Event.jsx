@@ -1,14 +1,16 @@
+import { memo } from 'react';
 import { useAppContext } from '../../context';
 import styles from './Event.module.css';
 
 const Event = ({ event }) => {
-  const { setIsModalOpen, setModalEvent } = useAppContext();
+  const { setIsModalOpen, setModalEvent, setError } = useAppContext();
 
   return (
     <div
       onClick={() => {
         setIsModalOpen(true);
         setModalEvent(event);
+        setError('');
       }}
       key={event.name}
       className={styles.container}
@@ -19,4 +21,4 @@ const Event = ({ event }) => {
   );
 };
 
-export default Event;
+export default memo(Event);

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useAppContext } from '../../context';
 import styles from './ModalOverlayWrapper.module.css';
 
@@ -23,4 +24,4 @@ const ModalOverlayWrapper = ({ children }) => {
   );
 };
 
-export default ModalOverlayWrapper;
+export default memo(ModalOverlayWrapper);

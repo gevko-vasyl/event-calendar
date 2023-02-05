@@ -1,79 +1,84 @@
 .form {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .label {
-	width: 100%;
-	font-size: var(--form-font-size);
-	font-weight: bold;
-	margin-bottom: var(--form-margin);
+  width: 100%;
+  font-size: var(--form-font-size);
+  font-weight: bold;
+  margin-bottom: var(--form-margin);
 }
 
 .input,
 .textarea {
-	width: 100%;
-	padding: var(--form-padding);
-	margin: var(--form-margin);
-	border: var(--form-border-width) solid #ccc;
-	border-radius: var(--form-border-radius);
+  width: 100%;
+  padding: var(--form-padding);
+  margin: var(--form-margin);
+  border: var(--form-border-width) solid #ccc;
+  border-radius: var(--form-border-radius);
 }
 
 .textarea {
-	resize: none;
-	height: 150px;
+  resize: none;
+  height: 150px;
+}
+
+.addidionalInfo {
+  margin: 0.5rem 0;
+  color: var(--color-grey);
 }
 
 .buttonsContainer {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .submitButton {
-	width: 100%;
-	background-color: var(--color-blue);
-	color: var(--color-white);
-	padding: var(--form-button-size);
-	margin: var(--form-margin);
-	border: none;
-	border-radius: var(--form-border-radius);
-	cursor: pointer;
-	font-size: var(--form-font-size);
-	font-weight: bold;
+  width: 100%;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: var(--form-button-size);
+  margin: var(--form-margin);
+  border: none;
+  border-radius: var(--form-border-radius);
+  cursor: pointer;
+  font-size: var(--form-font-size);
+  font-weight: bold;
 }
 
 .submitButton:hover {
-	background-color: var(--color-blue-hover);
+  background-color: var(--color-blue-hover);
 }
 
 .buttonCancel {
-	width: 100%;
-	padding: var(--form-button-size);
-	margin: var(--form-margin);
+  width: 100%;
+  padding: var(--form-button-size);
+  margin: var(--form-margin);
 
-	border: none;
-	background-color: var(--color-red);
-	color: var(--color-white);
-	border-radius: var(--form-border-radius);
-	cursor: pointer;
+  border: none;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border-radius: var(--form-border-radius);
+  cursor: pointer;
 
-	font-size: var(--form-font-size);
-	font-weight: bold;
+  font-size: var(--form-font-size);
+  font-weight: bold;
 }
 
 .buttonCancel:hover {
-	background-color: var(--color-red-hover);
+  background-color: var(--color-red-hover);
 }
 
 .formError {
-	color: var(--color-red);
+  color: var(--color-red);
 }
 
 @media only screen and (max-width: 600px) {
-	.form {
-		width: 90%;
-	}
+  .form {
+    width: 90%;
+  }
 }

@@ -1,9 +1,13 @@
+import { memo } from 'react';
+import { format } from 'date-fns';
+import Loader from '../Loader/Loader';
 import { useAppContext } from '../../context';
 import { useFormEvent } from '../../hooks/useFormEvent';
 import styles from './EventForm.module.css';
 
 const EventForm = () => {
-  const { modalEvent } = useAppContext();
+  const { modalEvent, isLoading, error } = useAppContext();
+
   const {
     name,
     setName,
@@ -17,8 +21,11 @@ const EventForm = () => {
     setDescription,
     handleSubmit,
     handleDelete,
-    error,
   } = useFormEvent(modalEvent);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -32,7 +39,6 @@ const EventForm = () => {
           onChange={e => setName(e.target.value)}
         />
       </label>
-      <br />
       <label className={styles.label}>
         Event Date:
         <input
@@ -42,7 +48,6 @@ const EventForm = () => {
           onChange={e => setDate(e.target.value)}
         />
       </label>
-      <br />
       <label className={styles.label}>
         Start Time:
         <input
@@ -52,7 +57,6 @@ const EventForm = () => {
           onChange={e => setStart(e.target.value)}
         />
       </label>
-      <br />
 
       <label className={styles.label}>
         End Time:
@@ -63,7 +67,6 @@ const EventForm = () => {
           onChange={e => setEnd(e.target.value)}
         />
       </label>
-      <br />
       <label className={styles.label}>
         Description:
         <textarea
@@ -72,7 +75,23 @@ const EventForm = () => {
           onChange={e => setDescription(e.target.value)}
         />
       </label>
-      <br />
+
+      {modalEvent && (
+        <div className={styles.addidionalInfo}>
+          {modalEvent?.updatedAt ? (
+            <span>
+              Updated at:{' '}
+              {`${format(new Date(modalEvent.updatedAt), 'yyyy-MM-dd HH:mm')}`}
+            </span>
+          ) : (
+            <span>
+              Created at:{' '}
+              {`${format(new Date(modalEvent.createdAt), 'yyyy-MM-dd HH:mm')}`}
+            </span>
+          )}
+        </div>
+      )}
+
       <div className={styles.buttonsContainer}>
         {modalEvent && (
           <button
@@ -91,4 +110,4 @@ const EventForm = () => {
   );
 };
 
-export default EventForm;
+export default memo(EventForm);

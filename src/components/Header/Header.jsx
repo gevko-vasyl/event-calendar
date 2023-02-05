@@ -1,15 +1,21 @@
+import { memo } from 'react';
 import DateFilter from '../DateFilter/DateFilter';
 import { useAppContext } from '../../context';
+import { ReactComponent as AddIcon } from '../../assets/add-icon.svg';
 import styles from './Header.module.css';
 
 const CalendarHeader = ({ date }) => {
-  const { setIsModalOpen } = useAppContext();
+  const { setIsModalOpen, setError } = useAppContext();
   return (
     <header className={styles.header}>
-      <div className={styles.addButton} onClick={() => setIsModalOpen(true)}>
-        <svg viewBox="0 0 24 24" className={styles.svg}>
-          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-        </svg>
+      <div
+        className={styles.addButton}
+        onClick={() => {
+          setIsModalOpen(true);
+          setError('');
+        }}
+      >
+        <AddIcon className={styles.svg} />
       </div>
       <DateFilter
         month={date?.month}
@@ -23,4 +29,4 @@ const CalendarHeader = ({ date }) => {
   );
 };
 
-export default CalendarHeader;
+export default memo(CalendarHeader);
